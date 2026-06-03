@@ -79,7 +79,12 @@ function initializeGame() {
         gameBoard.appendChild(cell);
     }
 }
-// Event listener for the guess button
+
+guessInput.addEventListener('keyup', function(event){
+    if (event.key === "Enter"){
+        guessButton.click();
+    }
+})
 guessButton.addEventListener('click', function() {
     let guess = guessInput.value.toLowerCase();
     if (guess.length === wordSize) {
