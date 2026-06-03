@@ -1,7 +1,18 @@
 const gameBoard = document.getElementById('gameboard');
 const guessInput = document.getElementById('guess');
 const guessButton = document.getElementById('btnGuess');
-let solutionWord = 'VxWorks';
+const solutionWordSecret = document.getElementById('secret');
+function decode(word){
+    let result = ""
+    let shift = 5 + (26 * Math.floor(5 / 26));
+    for(let i = 0; i < word.length; i++){
+        result +=  String.fromCharCode(word.toString().charCodeAt(i) - shift);
+    }
+    console.log(result)
+    return result
+}
+
+let solutionWord = decode(solutionWordSecret.value);
 const inputs = [];
 const results = [];
 const wordSize = solutionWord.length;
