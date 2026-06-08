@@ -2,13 +2,19 @@ const gameBoard = document.getElementById('gameboard');
 const guessInput = document.getElementById('guess');
 const guessButton = document.getElementById('btnGuess');
 const solutionWordSecret = document.getElementById('secret');
+
+function wrap(num, min, max){
+    const netShift = (5 % 26 + 26) % 26;
+    const baseCode = 65; // A = 65, a = 97
+    const shiftedCode = ((num - baseCode - netShift + 26) % 26) + baseCode;
+    return shiftedCode;
+}
 function decode(word){
     let result = ""
-    let shift = 5 + (26 * Math.floor(5 / 26));
     for(let i = 0; i < word.length; i++){
-        result +=  String.fromCharCode(word.toString().charCodeAt(i) - shift);
+        var char = wrap(word.toString().charCodeAt(i), 65, 90) 
+        result +=  String.fromCharCode(char);
     }
-    console.log(result)
     return result
 }
 
@@ -40,7 +46,6 @@ function validate(word) {
         }
 
     }
-    console.log(result)
     inputs.push(word);
     results.push(result);
     guessInput.value = "";
