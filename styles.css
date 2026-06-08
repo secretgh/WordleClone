@@ -10,17 +10,19 @@ body {
 
 #gameboard {
     display: grid;
-    grid-template-columns: repeat(var(--word-size), 1fr);
-    gap: 10px;
-    margin: 20px auto;
+    grid-template-columns: repeat(var(--word-size), minmax(50px,2vw));
+    gap: 1vw;
+    margin: 15px auto;
     max-width: fit-content;
 }
 .cell {
-    width: 60px;
-    height: 60px;
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+    aspect-ratio: 1/1;
     border: 2px solid #333;
     text-align: center;
-    line-height: 60px;
+    line-height: 150%;
     font-size: 2em;
 }
 .cell.correct {
@@ -34,14 +36,4 @@ body {
 .cell.incorrect {
     background: #3a3a3c;
     color: white;
-}
-@media (max-width: 400px) {
-  .cell {
-    width: 40px;
-    height: 40px;
-    border: 1px solid #333;
-    text-align: center;
-    line-height: 40px;
-    font-size: 1em;
-}
 }
