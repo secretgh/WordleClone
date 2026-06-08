@@ -4,17 +4,23 @@ const guessButton = document.getElementById('btnGuess');
 const solutionWordSecret = document.getElementById('secret');
 
 function wrap(num, min, max){
+    //console.log(num + ' '+String.fromCharCode(num))
     const netShift = (5 % 26 + 26) % 26;
     const baseCode = 65; // A = 65, a = 97
     const shiftedCode = ((num - baseCode - netShift + 26) % 26) + baseCode;
+   // console.log(shiftedCode + ' '+String.fromCharCode(shiftedCode))
+
     return shiftedCode;
 }
 function decode(word){
     let result = ""
+
     for(let i = 0; i < word.length; i++){
         var char = wrap(word.toString().charCodeAt(i), 65, 90) 
+        //console.log(char + String.fromCharCode(char))
         result +=  String.fromCharCode(char);
     }
+    //console.log(result)
     return result
 }
 
@@ -46,6 +52,7 @@ function validate(word) {
         }
 
     }
+    //console.log(result)
     inputs.push(word);
     results.push(result);
     guessInput.value = "";
