@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WR Career Expo Wordle</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>Marketing Booth - Wind River Wordle</h1>
+        <p>
+            Please look and listen closely at the booth to get hints towards the word. 
+        </p>
+        <p style="line-height:24px;">
+           <span style="padding: 2px; margin-bottom:2px; background:#538d4e;color:white; border-radius: 2px;">Green</span> is in the word and in the correct spot. <br>
+           <span style="padding: 2px; margin-bottom:2px; background:#b59f3b;color:white; border-radius: 2px;">Yellow</span> is in the word but in the wrong spot. <br>
+           <span style="padding: 2px; margin-bottom:2px; background:#3a3a3c; color:white; border-radius:2px;">Grey</span> is not in the word in any spot.
+        </p>
+        <div id="gameboard"></div>
+        <input type="text" id="guess">
+        <input hidden type="hidden" id="secret" value="IJRFSI" />
+        <button id="btnGuess">Guess</button>
+        <script src="script.js"></script>
+    </body>
+</html>
